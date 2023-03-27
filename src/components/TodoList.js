@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const TodoList = () => {
-  return (
-    <div>TodoList</div>
-  )
-}
+  return <div>TodoList</div>;
+};
 
-export default TodoList
+export default TodoList;
