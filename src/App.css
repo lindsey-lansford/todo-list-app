@@ -7,6 +7,10 @@
   font-family: "Quicksand";
 }
 
+body {
+  background-color: whitesmoke;
+}
+
 .todo-app {
   display: flex;
   flex-direction: column;
