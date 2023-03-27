@@ -3,7 +3,6 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 
 const TodoList = () => {
-
   const [todo, setTodo] = useState([]);
 
   // Function to add a todo item to the list
@@ -57,15 +56,17 @@ const TodoList = () => {
     );
   };
 
-  return <div>
-    <TodoForm onSubmit={addTodoItem} />
-    <Todo
-    todo={todo}
-    completeTodoItem={completeTodoItem}
-    removeTodoItem={removeTodoItem}
-    editTodoItem={editTodoItem}>
-    </Todo>
-  </div>;
+  return (
+    <div>
+      <TodoForm onSubmit={addTodoItem} />
+      <Todo
+        todo={todo}
+        completeTodoItem={completeTodoItem}
+        removeTodoItem={removeTodoItem}
+        editTodoItem={editTodoItem}
+      ></Todo>
+    </div>
+  );
 };
 
 export default TodoList;
