@@ -9,7 +9,7 @@ const Todo = (props) => {
   });
   
   const submitUpdate = (value) => {
-    props.editTodoItem(edit.is, value);
+    props.editTodoItem(edit.id, value);
     setEdit({ id: null, value: '' });
   };
 
