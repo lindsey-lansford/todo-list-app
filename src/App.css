@@ -17,18 +17,24 @@ body {
   justify-content: flex-start;
   width: 800px;
   min-height: 600px;
-  background: black;
+  /* background: black; */
   text-align: center;
   margin: 32px auto;
   border-radius: 20px;
   padding-bottom: 32px;
 }
 
+/* h1, p {
+  color: whitesmoke;
+} */
+
 h3 {
   margin: auto;
   color: rgb(66, 171, 231);
   font-size: 20px;
 }
+
+
 
 .complete {
   text-decoration: line-through;
