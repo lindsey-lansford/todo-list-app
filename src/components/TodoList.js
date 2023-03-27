@@ -8,12 +8,15 @@ const TodoList = () => {
 
   // Function to add a todo item to the list
   const addTodoItem = (item) => {
+    console.log(item);
+
     // Checking to see if the item text is empty
     if (!item.text) {
       return;
     }
     // Adding new item to existing array of objs
     const newTodo = [item, ...todo];
+    console.log(newTodo);
 
     // Calling setTodo to update state with new item
     setTodo(newTodo);
@@ -29,6 +32,7 @@ const TodoList = () => {
       return item;
     });
 
+    console.log(updatedTodo);
     setTodo(updatedTodo);
   };
 
@@ -53,13 +57,13 @@ const TodoList = () => {
     );
   };
 
-  return <div>TodoList
+  return <div>
     <TodoForm onSubmit={addTodoItem} />
-    <Todo>
-      todo={todo}
-      completeTodoItem={completeTodoItem}
-      removeTodoItem={removeTodoItem}
-      editTodoItem={editTodoItem}
+    <Todo
+    todo={todo}
+    completeTodoItem={completeTodoItem}
+    removeTodoItem={removeTodoItem}
+    editTodoItem={editTodoItem}>
     </Todo>
   </div>;
 };

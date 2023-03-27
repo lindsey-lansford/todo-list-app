@@ -7,16 +7,18 @@ const Todo = (props) => {
     value: "",
   });
 
+  console.log(props.todo);
+
   const submitUpdate = (value) => {
     props.editTodoItem(edit.id, value);
     setEdit({ id: null, value: "" });
   };
 
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />
   }
 
-  return props.todo.map((item, i) => {
+  return props.todo.map((item, i) => (
     <div className={item.isCompelte} key={i}>
       <div key={item.id} onClick={() => props.completeTodoItem(item.id)}>
         {item.text}
@@ -25,8 +27,8 @@ const Todo = (props) => {
         <p onClick={() => setEdit({ id: item.id, value: item.text })}> ✏️</p>
         <p onClick={() => props.removeTodoItem(item.id)}> 🗑️</p>
       </div>
-    </div>;
-  });
+    </div>
+  ));
 };
 
 export default Todo;
