@@ -2,16 +2,25 @@ import React, { useState } from "react";
 
 const TodoForm = (props) => {
   const [input, setInput] = useState('');
+  let [priority, setPriority] = useState('');
+
+  const priorityLevel = ['high', 'medium', 'low']
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!priority) {
+      priority = "low";
+    }
+
     props.onSubmit({
       id: Math.random(Math.floor() * 1000),
       text: input,
+      priority: priority,
     });
 
     setInput('');
+    setPriority('');
   };
 
   const handleChange = (e) => {
@@ -28,9 +37,20 @@ const TodoForm = (props) => {
           value={input}
           onChange={handleChange}
           name="text"
-          className="todo-item"
+          className="todo-input"
+          placeholder="Add your todo"
         />
-        <button className="todo-button">Add todo item</button>
+        <div className="dropdown">
+          <button className={`dropbtn ${priority}`}>
+            {priority || 'Priority'}
+          </button>
+          <div className="dropdown-content">
+            <p onClick={() => setPriority(priorityLevel[0])}>High</p>
+            <p onClick={() => setPriority(priorityLevel[1])}>Medium</p>
+            <p onClick={() => setPriority(priorityLevel[2])}>Low</p>
+          </div>
+        </div>
+        <button className="todo-button">Add item</button>
       </form>
     </div>
   ) : (
@@ -43,8 +63,18 @@ const TodoForm = (props) => {
           onChange={handleChange}
           placeholder={props.edit.value}
           name="text"
-          className="todo-item"
-        />
+          className="todo-input"
+          />
+        <div className="dropdown">
+          <button className={`dropbtn ${priority}`}>
+            {priority || 'Priority'}
+          </button>
+          <div className="dropdown-content">
+            <p onClick={() => setPriority(priorityLevel[0])}>High</p>
+            <p onClick={() => setPriority(priorityLevel[1])}>Medium</p>
+            <p onClick={() => setPriority(priorityLevel[2])}>Low</p>
+          </div>
+        </div>
         <button className="todo-button">Update todo item</button>
       </form>
     </div>
